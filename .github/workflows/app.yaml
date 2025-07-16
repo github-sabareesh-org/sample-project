@@ -6,7 +6,7 @@ jobs:
     steps:
       - name: echo-string
         run: echo "Hello world"
-      - name: Multiple-command
+      - name: Multiple-commands
         run: | 
          node -v
          npm -v  
