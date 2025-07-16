@@ -2,14 +2,15 @@ name: firstworkflow
 on: push
 jobs:
   learn-actions:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
+
     steps:
       - name: echo-string
         run: echo "Hello world Example"
       - name: Multiple-command
         run: | 
          node -v
-         npm -v  
+         npm -vs  
   parallel-job:
     runs-on: macos-latest
     steps:
