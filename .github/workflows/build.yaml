@@ -15,4 +15,12 @@ jobs:
     steps:
       - name: Get SW version
         run: sw_vers
-               
+  dependent-job:
+    runs-on: windows-latest
+    needs: parallel-job
+    steps:
+      - name: echo a string
+        run: Write-Output "windows string"
+
+
+
