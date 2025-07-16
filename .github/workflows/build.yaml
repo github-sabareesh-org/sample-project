@@ -1,6 +1,7 @@
 name: firstworkflow
 on: push
 jobs:
+  # first-job
   learn-actions:
     runs-on: ubuntu-latest
     steps:
@@ -10,6 +11,7 @@ jobs:
         run: | 
          node -v
          npm -vs  
+  # second job       
   parallel-job:
     runs-on: macos-latest
     steps:
