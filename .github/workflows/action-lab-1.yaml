@@ -1,0 +1,9 @@
+name: actions-lab-1
+on: [push]
+jobs:
+  simple-job-1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: simple js action
+        uses: actions/hello-world-javascript-action@v1.1
+        
