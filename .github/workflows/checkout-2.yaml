@@ -1,4 +1,4 @@
-name: checkout-action
+name: checkout-action-2
 on: [push]
 jobs:
   build:
