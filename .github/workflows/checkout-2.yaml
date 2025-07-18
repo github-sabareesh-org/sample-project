@@ -1,0 +1,12 @@
+name: checkout-action-2
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: list  all the files
+        run: ls -a
+      - name: checkout-action
+        uses: actions/checkout@v4 
+      - name: List after checkout
+        run: ls -a 
