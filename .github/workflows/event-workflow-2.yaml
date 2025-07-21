@@ -1,0 +1,12 @@
+name: Workflow_run_demo
+# I want this workflow to run when our first workflow is completed
+on:
+    workflow_run:
+        workflows : [Repo-events]
+        types: [completed]
+jobs:
+    echo-string:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "I was triggered from the Repo-events completed"        
+
