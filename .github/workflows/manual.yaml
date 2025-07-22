@@ -2,7 +2,7 @@ name: manual-workflow
 on:
     workflow_dispatch: 
         inputs:
-            string:
+            string: # name of the input
                 description: A input String
                 type: string
                 required: true
@@ -33,4 +33,11 @@ jobs:
     log-info:
         runs-on: ubuntu-latest
         steps:
-            - run: echo $GITHUB_REF        
+            - run: echo $GITHUB_REF    
+            - name: getting-input-values
+              run: |
+                echo "String: ${{inputs.string}}" 
+                echo "Number: ${{inputs.number}}"
+                echo "Option: ${{inputs.options}}"
+                echo "Boolean: ${{inputs.boolean}}"
+                echo "Environment: ${{inputs.environment}}"       
