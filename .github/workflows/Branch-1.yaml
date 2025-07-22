@@ -1,0 +1,20 @@
+name: Repo-events
+on: 
+    push:
+        branches: 
+            - main
+            - feature
+            - feature/* #if there is a branch feature/abc feature/xyz butnot feature/
+            - feature/** #if there is abranch feature/mybranch feature/beta/mybranch or feature/abc/xyz/abc
+            - "!feature/abcde" #exclude branch 
+        branches-ignore:
+            - dev 
+            - uat    
+jobs:
+    check-repo-events:
+        runs-on: ubuntu-latest
+        steps:
+            - run: |
+               echo $GITHUB_SHA
+               echo $GITHUB_REF
+            - uses: actions/checkout@v4   
