@@ -1,6 +1,12 @@
 name: manual-workflow
 on:
     workflow_dispatch: 
+        inputs:
+            string:
+                description: A input String
+                type: string
+                required: true
+                default: "Default Value"
 jobs:
     log-info:
         runs-on: ubuntu-latest
