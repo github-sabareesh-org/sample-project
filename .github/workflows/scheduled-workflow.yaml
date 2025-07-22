@@ -1,0 +1,13 @@
+name: Scheduled-workflow
+on:
+    schedule:
+        - cron: "0 14 * * *"
+jobs:
+    stale:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/stale@v9
+              with:
+                    stale-issue-message: 'This issue is stale because it has been open 30 days with no activity. Remove stale label or comment or this will be closed in 5 days.'
+                    days-before-stale: 3
+                    days-before-close: 5
