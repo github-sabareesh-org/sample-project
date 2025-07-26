@@ -1,0 +1,25 @@
+name: example-1
+on:
+    push:
+    workflow_dispatch: 
+        inputs:
+            debug:
+                description: "Enable Debug Mode"
+                type: boolean
+                default: false 
+jobs:
+    echo:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print Startup data
+              if: ${{inputs.debug==true}}
+              run: |
+               echo "Triggered by: ${{github.event_name}}"
+               echo "Branch Name: ${{github.ref}}"                
+               echo "Commit Id: ${{github.sha}}"
+               echo "OS:${{runner.os}}"
+            - name: Print when triggerd from main 
+              if: ${{inputs.debug==true && github.ref == 'refs/heads/main'}}
+              run: echo "I was tiggered from main and input was set tot true"
+            - name: hello
+              run: echo "Hello-world"     
