@@ -1,0 +1,21 @@
+name:  status-function-demo
+on: [workflow_dispatch, pull_request]
+jobs:
+    Demo-1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: failing step
+              run: exit 1
+            - name: will be skipped
+              if: success()
+              run: echo 'I will print if the previous step is succeed'
+            - name: Will execute
+              if: failure()
+              run: echo 'I will print if the previous step is filed'
+            - name: will execute
+              if: ${{!cancelled()}}
+              run: |
+               echo I will always print,except the workflow is cancelled
+            - name: will cancel
+              if: cancelled()
+              run: echo I will print if theworkflow is cancelled         
