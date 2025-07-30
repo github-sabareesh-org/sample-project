@@ -19,7 +19,7 @@ jobs:
             - name: Set-envt
               run:
                 echo "NEW_DATE=$(date)" >> "$GITHUB_ENV"  
-                echo "JOB_LEVEL=$RANDOM" >> "$GITHUB_ENV"  
+                echo "JOB_LEVEL=$(RANDOM)" >> "$GITHUB_ENV"  
             - name: Print the env values  
               env:
                 STEP_LEVEL: Avaialble at the step
