@@ -1,5 +1,5 @@
 name: environment-variables
-on [push]
+on: [push]
 jobs:
     env-var:
         runs-on: ubuntu-latest
