@@ -1,10 +1,26 @@
 name: environment-variables
 on: [push]
+
+env:
+  CLUSTER_NAME: At workflow level
 jobs:
     env-var:
         runs-on: ubuntu-latest
+        #if: $GITHUB_REF== 'refs/heads/main' 
+        if: github.ref == 'refs/heads/main' 
+        env:
+          JOB_LEVEL: Available at all the stpes on this job
         steps:
             - name: Log Env VAR
               run: echo $GITHUB_REF
             - name: Log Context
               run: echo ''${{github.ref}}  
+            - name: Print the env values  
+              env:
+                STEP_LEVEL: Avaialble at the step
+                CLUSTER_NAME: Overriden in step
+              run: |
+                echo '${{env.STEP_LEVEL}}'  # context
+                echo $STEP_LEVEL
+                echo $CLUSTER_NAME
+                echo $JOB_LEVEL 
