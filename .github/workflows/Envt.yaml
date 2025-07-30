@@ -14,13 +14,18 @@ jobs:
             - name: Log Env VAR
               run: echo $GITHUB_REF
             - name: Log Context
-              run: echo ''${{github.ref}}  
+              run: echo ''${{github.ref}} 
+              
+            - name: Set-envt
+              run:
+                echo "NEW_DATE=${date}" >> "$GITHUB_ENV"  
             - name: Print the env values  
               env:
                 STEP_LEVEL: Avaialble at the step
                 CLUSTER_NAME: Overriden in step
               run: |
-                echo '${{env.STEP_LEVEL}}'  # context
-                echo $STEP_LEVEL
+                echo '${{env.STEP_LEVEL}}'  # context evaluation will be done at github and passed o/p to runner machine
+                echo $STEP_LEVEL       # evaluation will be done at runner machine 
                 echo $CLUSTER_NAME
                 echo $JOB_LEVEL 
+                echo $NEW_DATE
