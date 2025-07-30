@@ -1,4 +1,4 @@
-name: environment variables
+name: environment-variables
 on [push]
 jobs:
     env-var:
@@ -6,5 +6,5 @@ jobs:
         steps:
             - name: Log Env VAR
               run: echo $GITHUB_REF
-            - name Log Context
+            - name: Log Context
               run: echo ''${{github.ref}}  
