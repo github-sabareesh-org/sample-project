@@ -3,6 +3,7 @@ on: push
 jobs:
     demo-1:
         runs-on: ubuntu-latest
+        environment: Production
         env:
             BOOLEAN_SECREAT: ${{secrets.BOOLEAN_SECREAT}}
             ENV_LEVEL_VARIABLE: ${{vars.ENV_LEVEL_VARIABLE}}
