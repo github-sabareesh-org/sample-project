@@ -1,0 +1,19 @@
+name: Variables and Secrets-1
+on: push
+jobs:
+    demo-1:
+        runs-on: ${{vars.JOBS_RUNNER}}
+        env:
+            BOOLEAN_SECREAT: ${{secrets.BOOLEAN_SECREAT}}
+            ENV_LEVEL_VARIABLE: ${{vars.ENV_LEVEL_VARIABLE}}
+            REPO_LEVEL_VARIABLE: ${{vars.REPO_LEVEL_VARIABLE}}
+            ORG_LEVEL_VARIABLE: ${{vars.ORG_LEVEL_VAR}}
+        steps:
+            - name: Run Only if BOOLEAN_SECREAT is true
+              if: env.BOOLEAN_SECREAT == 'true'
+              run: echo "I ran"
+            - name: Values of the variable
+              run: |
+                 echo "ORGLEVEL_VAR=$ORG_LEVEL_VARIABLE"
+                 echo "REPOLEVEL_VAR=$REPO_LEVEL_VARIABLE"
+                 echo "ENVLEVEL_VAR=$ENV_LEVEL_VARIABLE"         
