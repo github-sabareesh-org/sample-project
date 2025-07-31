@@ -2,7 +2,7 @@ name: Variables and Secrets-1
 on: push
 jobs:
     demo-1:
-        runs-on: ${{vars.JOBS_RUNNER}}
+        runs-on: ubuntu-latest
         env:
             BOOLEAN_SECREAT: ${{secrets.BOOLEAN_SECREAT}}
             ENV_LEVEL_VARIABLE: ${{vars.ENV_LEVEL_VARIABLE}}
