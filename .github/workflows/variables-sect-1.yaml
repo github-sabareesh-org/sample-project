@@ -14,6 +14,7 @@ jobs:
               run: echo "I ran"
             - name: Values of the variable
               run: |
+                 echo $BOOLEAN_SECREAT
                  echo "ORGLEVEL_VAR=$ORG_LEVEL_VARIABLE"
                  echo "REPOLEVEL_VAR=$REPO_LEVEL_VARIABLE"
                  echo "ENVLEVEL_VAR=$ENV_LEVEL_VARIABLE"         
