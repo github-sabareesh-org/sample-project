@@ -19,6 +19,6 @@ jobs:
                 echo "Running tests...."
             - name: fail the test
               if: ${{!inputs.pass-input-tests}}
-            #  continue-on-error: true
+              continue-on-error: true
               run: exit 1    
                                           
