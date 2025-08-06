@@ -1,0 +1,23 @@
+name: matirx-lab-1
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+        fail-fast: true
+        max-parallel: 2
+        matrix:
+          node: [10,12,14]
+    steps:
+      - name: checkout-code
+        uses: actions/checkout@v2
+
+      - name: setup-node  
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{matrix.node}}
+      - name: install dep
+        run: npm install
+        
+      - name: Run tests
+        run: npm test  
