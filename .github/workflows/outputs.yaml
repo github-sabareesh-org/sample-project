@@ -1,0 +1,30 @@
+name: lab-output
+on:
+    workflow_dispatch: 
+        inputs:
+            build-status:
+                type: choice
+                options:
+                    - success
+                    - failure
+                default: success
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        outputs:
+            buid-update: ${{steps.build.outputs.status}}
+        
+        steps:
+            - name: print the output path
+              run: echo $GITHUB_OUTPUT
+            - name: Build
+              id: build
+              run: echo "status= ${{inputs.build-status}}" >> $GITHUB_OUTPUT  
+    Deploy:
+        runs-on: ubuntu-latest
+        needs: build
+        if: ${{needs.build.outputs.buid-update=='success'}}
+        steps:
+            -  name: deploy
+               run: echo "Deploying app"
