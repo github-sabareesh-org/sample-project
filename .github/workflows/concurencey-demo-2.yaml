@@ -6,7 +6,9 @@ on:
                 type: environment
                 description: environment-value
                 default: true
-concurrency: concurencey                
+concurrency: 
+    group: concurencey
+    cancel-in-progress: true                
 jobs:
     sleep:
         runs-on: ubuntu-latest
