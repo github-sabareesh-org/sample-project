@@ -1,4 +1,5 @@
 name: concurency-demo-2
+run-name: concurency-dem0-${{inputs.environment}}
 on:
     workflow_dispatch: 
         inputs:
@@ -7,7 +8,7 @@ on:
                 description: environment-value
                 default: true
 concurrency: 
-    group: concurencey
+    group: ${{inputs.environment}}
     cancel-in-progress: true                
 jobs:
     sleep:
