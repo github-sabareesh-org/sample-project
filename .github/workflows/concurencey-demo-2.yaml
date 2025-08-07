@@ -1,0 +1,15 @@
+name: concurency-demo-2
+on:
+    workflow_dispatch: 
+        inputs:
+            environment:
+                type: environment
+                description: environment-value
+                default: true
+concurrency: concurencey                
+jobs:
+    sleep:
+        runs-on: ubuntu-latest
+        steps:
+            - name: sleep step
+              run: sleep 30                             
